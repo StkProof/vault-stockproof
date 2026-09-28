@@ -8,7 +8,7 @@ aliases:
 
 # Hacka BNB — acciones tokenizadas
 
-Vault de la participación en [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks). Abrí **esta carpeta** (`vault/`) como vault en Obsidian.
+Vault de la participación en [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks). Abrí **esta carpeta** (`stockproof-vault/`) como vault en Obsidian.
 
 El producto se llama **StockProof**. Dado un ticker y un monto, responde cuatro preguntas antes de firmar el swap.
 
@@ -39,3 +39,7 @@ El vault es la fuente de verdad del proyecto: decisiones, alcance y números sal
 - 28 sep 2026: plan de desarrollo en [[Plan]], alineado con las ventanas del [[MVP]]. [[Idea]], [[MVP]] y [[Alineamiento]] ya incluyen el bloque de salida.
 - 28 sep 2026: roles con nombre. Luciano: frontend y producto. Agustín y Lautaro: lógica. Olas de la lógica y propuesta de tablero en [[Plan]].
 - 28 sep 2026: Lautaro queda a cargo de los entregables, sujeto a cambios. Reglas para no pisarse en [[Plan]].
+- 28 sep 2026: [StockProof_README.md](StockProof_README.md) queda como relato para el jurado. Tres decisiones, el detalle en [[Idea#La frase no apaga los cortes]] y [[MVP]]:
+  - El 1% y la verificación corren aunque la frase no los pida. Un tope de desvío que escriba el usuario se suma; no reemplaza la pregunta 3.
+  - La pregunta 4 se queda. El arbitraje de fin de semana sigue afuera.
+  - Se construye por las ventanas del [[MVP]], no por la fase 0 del README. Lo ya construido es preguntas 1 y 2 en `evaluate`.

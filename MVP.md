@@ -7,6 +7,13 @@ tags:
 
 Alcance para llegar al 11 oct con algo que un juez puede usar. La definición del producto está en [[Idea]]. El encaje, en [[Alineamiento]].
 
+> [!important] El README no mueve este calendario
+> [StockProof_README.md](StockProof_README.md) es el relato para el jurado (28 sep 2026). Su fase 0 —cadena completa y firma antes de la pantalla— no es el plan. Estas ventanas sí.
+>
+> - Del 26 sep al 3 oct siguen las preguntas 1 y 2. Ya están en `stock-proof/lib/evaluate.ts`: umbral fijo de 1%, los tres wrappers, sin frase y sin firma.
+> - Del 4 al 9 oct entran las preguntas 3 y 4, el bloque de salida, la frase y la firma de un monto chico.
+> - El código sigue en `stock-proof/`. No se rearma en `apps/` y `packages/`.
+
 ## Pantalla única
 
 1. El usuario escribe un ticker y un monto.
