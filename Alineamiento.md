@@ -12,7 +12,7 @@ tags:
 | Criterio | Peso | Cómo lo cubre StockProof |
 | --- | --- | --- |
 | Implementación | 30% | RWA (lista, attestation, dos precios, estado de mercado), Trading (cotización), Transaction (simular el monto), Market (régimen del ticker), Wallet (posición). El flujo corre en BSC mainnet con un monto chico |
-| Originalidad | 25% | La lista oficial pide arbitraje de horario, arbitraje entre wrappers, monitor de spread, DCA y canastas. StockProof usa esos datos para decidir si la orden se firma. El rechazo es el producto |
+| Originalidad | 25% | La lista oficial pide arbitraje de horario, arbitraje entre wrappers, monitor de spread, DCA y canastas. StockProof usa esos datos para decidir si la orden se firma. El rechazo es el producto, y además muestra cuánto cuesta salir ([[Diferenciador]]) |
 | Developer Experience Report | 25% | Cada cotización deja slippage real, gap contra la referencia y diferencia entre bStocks, Ondo y xStocks. El informe es el log del producto, con la sección de stack de IA |
 | UX | 20% | Una pantalla: ticker, monto, cuatro respuestas en castellano. Sirve a quien no vive en cripto |
 

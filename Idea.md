@@ -26,6 +26,10 @@ Alguien que no opera en el horario de Nueva York, busca un ticker que conoce y m
 
 El agente ejecuta solo si las cuatro pasan. Su trabajo visible es negarse: contrato falso, monto que rompe el pool, o un precio de fin de semana que en ese ticker no es la acción. Cuando ejecuta, elige el wrapper que llena ese monto con menos impacto y simula antes de difundir.
 
+## La salida
+
+Las cuatro preguntas miran la entrada. Antes de la firma, StockProof agrega un bloque de salida en tres capas: **Exit Now** (simulación real de vender el mismo monto ahora), **Exit Availability** (horarios, mint, redeem y canje publicados) y **Exit Risk** (señales observables, con fuente y fecha). No predice precio ni liquidez futura. Detalle en [[Diferenciador]].
+
 ## Por qué este corte
 
 El brief de la hackathon cuenta el gap del viernes a las 16:00. En los nombres líquidos (QQQB, SPYB) ese gap casi no existe: el finde mueve el precio menos que la sesión, porque el book de Binance lo clava. El daño medido está en otra parte.
