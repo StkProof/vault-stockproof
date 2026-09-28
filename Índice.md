@@ -37,3 +37,5 @@ El vault es la fuente de verdad del proyecto: decisiones, alcance y números sal
 - 27 sep 2026: la base de código es `stock-proof/lib/evaluate.ts`. La pantalla puede usar los cinco estados de `lib/evaluation-examples.ts`. Hay API key del portal de Binance; el código todavía no la llama. Va en `.env`, fuera del repo.
 - 28 sep 2026: diferenciador agregado en [[Diferenciador]]. Además de las cuatro preguntas de entrada, StockProof muestra un bloque de salida en tres capas: Exit Now (simulación real), Exit Availability (reglas y horarios publicados) y Exit Risk (señales observables, sin predecir).
 - 28 sep 2026: plan de desarrollo en [[Plan]], alineado con las ventanas del [[MVP]]. [[Idea]], [[MVP]] y [[Alineamiento]] ya incluyen el bloque de salida.
+- 28 sep 2026: roles con nombre. Luciano: frontend y producto. Agustín y Lautaro: lógica. Olas de la lógica y propuesta de tablero en [[Plan]].
+- 28 sep 2026: Lautaro queda a cargo de los entregables, sujeto a cambios. Reglas para no pisarse en [[Plan]].
