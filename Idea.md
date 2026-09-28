@@ -26,6 +26,17 @@ Alguien que no opera en el horario de Nueva York, busca un ticker que conoce y m
 
 El agente ejecuta solo si las cuatro pasan. Su trabajo visible es negarse: contrato falso, monto que rompe el pool, o un precio de fin de semana que en ese ticker no es la acción. Cuando ejecuta, elige el wrapper que llena ese monto con menos impacto y simula antes de difundir.
 
+## La frase no apaga los cortes
+
+> [!important] 28 sep 2026
+> La política que escribe el usuario se suma a las cuatro preguntas. No las reemplaza. El relato para el jurado está en [StockProof_README.md](StockProof_README.md). Si ese archivo y esta nota se contradicen, manda esta nota.
+
+La frase puede pedir topes («costo menor al 1%», «el precio on-chain a menos del 2% de la referencia»). Esos topes se miran después de las cuatro preguntas.
+
+- La pregunta 1 y el umbral de impacto del 1% corren aunque la frase no los nombre.
+- Un tope de desvío contra la referencia se suma a la pregunta 3. No la reemplaza: si el token es de retorno total o el dividendo cambia el balance, el precio de la wallet se explica igual.
+- La pregunta 4 sigue siendo un corte de StockProof. En un nombre fino, mercado cerrado frena o parte la orden aunque la frase no hable del horario.
+
 ## La salida
 
 Las cuatro preguntas miran la entrada. Antes de la firma, StockProof agrega un bloque de salida en tres capas: **Exit Now** (simulación real de vender el mismo monto ahora), **Exit Availability** (horarios, mint, redeem y canje publicados) y **Exit Risk** (señales observables, con fuente y fecha). No predice precio ni liquidez futura. Detalle en [[Diferenciador]].
