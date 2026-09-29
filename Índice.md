@@ -8,7 +8,7 @@ aliases:
 
 # Hacka BNB — acciones tokenizadas
 
-Vault de la participación en [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks). Abrí **esta carpeta** (`stockproof-vault/`) como vault en Obsidian.
+Vault de la participación en [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks). Abrí **esta carpeta** (`vault-stockproof/`) como vault en Obsidian.
 
 El producto se llama **StockProof**. Dado un ticker y un monto, responde cuatro preguntas antes de firmar el swap.
 
