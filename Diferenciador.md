@@ -37,7 +37,7 @@ Antes del botón de firma, un bloque de salida con tres capas separadas. Cada un
 
 | Capa | Qué responde | De dónde sale | Qué **no** hace |
 | --- | --- | --- | --- |
-| **Exit Now** | Si vendés este monto ahora, cuánto recuperás | Simulación real y ejecutable de la venta del mismo monto, en el mismo momento y el mismo wrapper (Trading API + Transaction API). Reusa la pregunta 2 | No proyecta el precio de mañana. Vale para este instante |
+| **Exit Now** | Si vendés este monto ahora, cuánto recuperás | Simulación real y ejecutable de la venta del mismo monto, en el mismo momento y el mismo wrapper (Trading API + Transaction API). Reusa la pregunta 2 | No proyecta el precio de mañana. Vale para este instante. Si se pasa del tope o no hay cotización, no se firma |
 | **Exit Availability** | Cuándo se puede salir y por dónde | Datos publicados: estado del mercado y próxima apertura (RWA Data API), horario de mint y redeem del emisor, dónde se canjea por la acción (bStocks: en Binance, no en el pool). Reusa las preguntas 3 y 4 | No promete que haya contraparte en ese horario. Dice qué reglas conocidas aplican |
 | **Exit Risk** | Qué señales observables dicen que salir puede costar más | Datos medidos hoy: dispersión entre pools del mismo ticker, profundidad actual, si el emisor opera fuera de horario de EEUU, historial de fills lejos del precio del día (Market API y log propio) | No estima un número futuro. Muestra la señal, su fuente y la fecha del dato |
 
@@ -47,7 +47,7 @@ Ejemplo de cómo se lee en pantalla:
 > **Exit Availability:** mercado de EEUU cerrado; abre el lunes 13:30 UTC. El canje por la acción se hace en Binance.
 > **Exit Risk:** hoy los dos pools de este ticker difieren Y%. Dato medido: en su tape, el finde fue el 0,55% del volumen (fuente y fecha al lado).
 
-Regla del bloque: si un dato no se puede medir o consultar, se dice «sin dato», no se completa. Si Exit Now pasa el umbral de costo, el agente puede negarse igual que con la entrada. Exit Availability y Exit Risk informan; no deciden solos.
+Regla del bloque (30 sep 2026, [[Idea#La frase no apaga los cortes]]): Exit Now es compuerta, al mismo nivel que la compra. Si se pasa del tope, o si no se puede medir, no se firma y se devuelve el monto que sí se puede vender. Exit Availability y Exit Risk informan y no deciden. Un dato de esas dos capas que no se puede medir se dice «sin dato» y no se completa. No se muestra una señal de riesgo debajo de un botón que igual firma.
 
 ## Por qué suma puntaje
 
@@ -62,7 +62,7 @@ Regla del bloque: si un dato no se puede medir o consultar, se dice «sin dato»
 
 - Ventana 4–9 oct, junto a las preguntas 3 y 4. No abre alcance: reusa la simulación de la pregunta 2.
 - Orden de construcción: Exit Now primero (es la pregunta 2 al revés), después Exit Availability, y Exit Risk con las señales que ya se midan para la pregunta 4.
-- Escena extra del video (unos 20 segundos): SPCXB un sábado, cuatro respuestas en verde y, abajo, las tres capas: lo que recuperás ahora, cuándo abre y qué señales de riesgo hay hoy.
+- Escena extra del video (unos 20 segundos): SPCXB un sábado. Si la venta de ese monto se pasa del tope, la pantalla corta en Exit Now y muestra el monto que sí se puede vender. Availability y Risk informan al lado del corte. QQQB el mismo sábado firma, con el libro clavado escrito en el comprobante.
 - Log del informe: desde la primera cotización, guardar también la cotización inversa del mismo monto.
 
 ## Pendiente de verificar

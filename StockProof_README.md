@@ -18,6 +18,7 @@ Esta sección no va al jurado. Lo que sigue es el relato de la entrega. Los cort
 | Preguntas 1 y 2, umbral fijo de 1%, tres wrappers, corte sin inventar un precio | `../stock-proof/lib/evaluate.ts` | Ya construido. Sin frase y sin firma |
 | El 1% y la verificación corren aunque la frase no los pida. Un tope de desvío (acá, 2%) se suma y no reemplaza la pregunta del precio | `Idea.md` | Decisión vigente |
 | La pregunta 4, el régimen del ticker, sigue. El arbitraje de fin de semana queda afuera | `Idea.md`, `Alineamiento.md` | Decisión vigente. Este README la deja diluida en el estado de mercado |
+| 30 sep 2026: no se cambia de wrapper en silencio; la negativa devuelve la orden que sí firmaría; Exit Now es compuerta; el sábado corta por la venta en el nombre fino, no por el reloj | `Idea.md`, `Diferenciador.md` | Decisión vigente. «Best valid route» de este relato no elige el wrapper solo por impacto de compra |
 | Ventanas del 26 sep al 3 oct y del 4 al 9 oct | `MVP.md` | Decisión vigente. La fase 0 (§31) y el monorepo (§30) no son el plan |
 
 ---

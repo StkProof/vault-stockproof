@@ -43,3 +43,10 @@ El vault es la fuente de verdad del proyecto: decisiones, alcance y números sal
   - El 1% y la verificación corren aunque la frase no los pida. Un tope de desvío que escriba el usuario se suma; no reemplaza la pregunta 3.
   - La pregunta 4 se queda. El arbitraje de fin de semana sigue afuera.
   - Se construye por las ventanas del [[MVP]], no por la fase 0 del README. Lo ya construido es preguntas 1 y 2 en `evaluate`.
+- 30 sep 2026: la idea se queda. Se suman tres reglas, el detalle en [[Idea#La frase no apaga los cortes]] y [[Diferenciador]]:
+  - No se cambia de wrapper en silencio. Se ven las tres cotizaciones. Se firma una sola, con compra y venta bajo el tope. Si hay más de una, la de menor impacto. El comprobante nombra cuál quedó.
+  - Toda negativa devuelve la orden que sí firmaría.
+  - Exit Now es compuerta, al mismo nivel que la compra. Availability y Risk informan y no deciden. Si la venta no se puede medir, no se firma.
+  - El mismo sábado se firma en un nombre líquido (el libro está clavado) y corta en un nombre fino si la venta se pasa del tope. El reloj no es el corte.
+  - El agente opera solo después de una orden, con la wallet de esa orden. No busca trades. La pantalla de las cuatro preguntas sigue. Queda afuera un wrapper por defecto callado y un comprobante que reemplace las cuatro respuestas.
+  - `evaluate` hoy elige por impacto de compra. La regla nueva manda cuando exista la cotización de venta.

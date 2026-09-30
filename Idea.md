@@ -18,13 +18,15 @@ Alguien que no opera en el horario de Nueva York, busca un ticker que conoce y m
 | # | Pregunta | Qué mira | Si falla |
 | --- | --- | --- | --- |
 | 1 | ¿Este contrato es el real? | Lista oficial, attestation y estándar del token (BEP-8056 en bStocks) | Corta. No hay swap |
-| 2 | ¿Esta orden entra? | Simulación del monto en bStocks, Ondo y xStocks | Muestra el costo y ofrece el wrapper que sí llena, o frena |
-| 3 | ¿Este número es la acción? | Precio de referencia, precio del pool y multiplicador de dividendos | Explica el desvío antes de que parezca un despegue |
-| 4 | ¿En qué régimen está este ticker? | Mercado abierto o cerrado, y si el libro está clavado o los pools no coinciden | En un nombre fino, frena o parte la orden |
+| 2 | ¿Esta orden entra y se puede salir? | Compra y venta del mismo monto en bStocks, Ondo y xStocks. Las tres cotizaciones se ven | Firma un solo wrapper con compra y venta bajo el tope. Si hay más de uno, el de menor impacto. Si ninguno, frena y devuelve el monto que sí pasaría |
+| 3 | ¿Este número es la acción? | Precio de referencia, precio del pool y multiplicador de dividendos | Si el desvío es el multiplier o el retorno total, lo explica y sigue. Si no tiene causa, corta |
+| 4 | ¿En qué régimen está este ticker? | Mercado abierto o cerrado, libro clavado, pools que no coinciden | En un nombre líquido el sábado se firma y el comprobante dice que el libro está clavado. En un nombre fino, si la venta de ese monto se pasa del tope, corta la salida. El reloj solo no corta. Los pools que no coinciden cortan |
 
 ## Qué hace el agente
 
-El agente ejecuta solo si las cuatro pasan. Su trabajo visible es negarse: contrato falso, monto que rompe el pool, o un precio de fin de semana que en ese ticker no es la acción. Cuando ejecuta, elige el wrapper que llena ese monto con menos impacto y simula antes de difundir.
+El agente opera solo después de una orden: un ticker y un monto, o una frase en castellano. No sale a buscar trades. La wallet que firma es la de esa orden. En la demo puede ser la wallet del equipo; la posición queda en la wallet que dio la orden.
+
+Su trabajo visible sigue siendo negarse: contrato falso, monto que no entra o no se puede vender, precio que no se puede explicar, pools que no coinciden. Cuando firma, muestra las tres cotizaciones, nombra el wrapper que quedó y los que no, y el costo de entrar y de salir ahora. Cuando se niega, devuelve la orden que sí firmaría: mismo ticker, mismo wrapper, monto más chico, o la frase de que ese wrapper no tiene salida bajo el tope.
 
 ## La frase no apaga los cortes
 
@@ -35,11 +37,24 @@ La frase puede pedir topes («costo menor al 1%», «el precio on-chain a menos 
 
 - La pregunta 1 y el umbral de impacto del 1% corren aunque la frase no los nombre.
 - Un tope de desvío contra la referencia se suma a la pregunta 3. No la reemplaza: si el token es de retorno total o el dividendo cambia el balance, el precio de la wallet se explica igual.
-- La pregunta 4 sigue siendo un corte de StockProof. En un nombre fino, mercado cerrado frena o parte la orden aunque la frase no hable del horario.
+- La pregunta 4 sigue. El arbitraje de fin de semana sigue afuera. El mercado cerrado no corta por el reloj: en un nombre líquido el comprobante dice que el libro está clavado; en un nombre fino corta la venta si se pasa del tope, aunque la frase no hable del horario.
+
+> [!important] 30 sep 2026
+> Tres reglas que se suman a esta nota. La pantalla de las cuatro preguntas se queda. El trabajo visible del agente sigue siendo negarse.
+>
+> 1. No se cambia de wrapper en silencio. Se ven las tres cotizaciones. Se firma una sola: la que tiene compra y venta bajo el tope. Si hay más de una, la de menor impacto de compra. El comprobante nombra el instrumento que quedó y los que no.
+> 2. Toda negativa devuelve la orden que sí firmaría: mismo ticker, mismo wrapper, monto más chico, o la frase de que ese wrapper no tiene salida bajo el tope.
+> 3. La venta del mismo monto (Exit Now) es compuerta, al mismo nivel que la compra. El horario de canje y las señales históricas informan y no deciden. Si la venta no se puede medir, no se firma.
+>
+> El mismo sábado es inofensivo en QQQB y caro en un nombre fino. El corte del nombre fino es el costo de salir, no el calendario.
+>
+> Queda afuera un wrapper por defecto callado, y reemplazar las cuatro respuestas por un comprobante solo.
+>
+> Lo ya construido en `evaluate` elige por impacto de compra, sin venta. Esta regla lo reemplaza cuando la venta del mismo monto se cotiza.
 
 ## La salida
 
-Las cuatro preguntas miran la entrada. Antes de la firma, StockProof agrega un bloque de salida en tres capas: **Exit Now** (simulación real de vender el mismo monto ahora), **Exit Availability** (horarios, mint, redeem y canje publicados) y **Exit Risk** (señales observables, con fuente y fecha). No predice precio ni liquidez futura. Detalle en [[Diferenciador]].
+Antes de la firma, StockProof agrega un bloque de salida en tres capas: **Exit Now** (simulación real de vender el mismo monto ahora; es compuerta), **Exit Availability** (horarios, mint, redeem y canje publicados; informa) y **Exit Risk** (señales observables, con fuente y fecha; informa). No predice precio ni liquidez futura. Detalle en [[Diferenciador]].
 
 ## Por qué este corte
 
